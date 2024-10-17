@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0  # Specify the MySQL version
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: anujchess12  # Set the MySQL root password
+      MYSQL_DATABASE: railway_db          # Create the default database
+      MYSQL_USER: root                     # Use root as the username (you can create a different user if needed)
+      MYSQL_PASSWORD: anujchess12         # Password for the root user
+    ports:
+      - "3306:3306"                       # Map MySQL port
+    volumes:
+      - mysql_data:/var/lib/mysql         # Persist data in a named volume
+
+volumes:
+  mysql_data:                             # Define a named volume for MySQL data
